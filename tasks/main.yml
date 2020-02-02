@@ -1,4 +1,1 @@
-# tasks file for ansible-role-docker-ce:
-- include_tasks: update.yml
-- include_tasks: docker.yml
-# or
+- import_tasks: docker.yml
