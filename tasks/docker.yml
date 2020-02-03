@@ -1,6 +1,6 @@
 ---
 - name: Install Docker 
-  yum:
+  dnf:
     name: docker-ce
     state: latest
 
