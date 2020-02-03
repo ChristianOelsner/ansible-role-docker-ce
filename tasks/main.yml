@@ -1,7 +1,10 @@
 ---
-# - import_tasks: 
-#   - update.yml
-#   - docker.yml
-#tasks:
-- import_tasks: update.yml
-- import_tasks: docker.yml
+- name: Import Docker CE repo
+  import_tasks: add-repo.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
+
+- name: Update all packages
+  import_tasks: update.yml
+  
+- name: Install Docker CE
+  import_tasks: docker.yml
