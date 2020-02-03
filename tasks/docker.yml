@@ -1,4 +1,9 @@
 ---
+- name: Make sure containerd.io is installed
+  dnf:
+    name: containerd.io
+    state: latest
+    
 - name: Install Docker 
   dnf:
     name: docker-ce
