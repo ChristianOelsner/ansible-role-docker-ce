@@ -1,10 +1,10 @@
 ---
-- name: Import Docker CE repo
+- name: Import Docker CE repo when distro is Redhat since they made weird changes
   import_tasks: add-repo.yml
   when: ansible_facts['os_family']|lower == 'redhat'
 
 - name: Update all packages
   import_tasks: update.yml
-  
+
 - name: Install Docker CE
   import_tasks: docker.yml

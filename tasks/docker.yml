@@ -22,3 +22,10 @@
   service:
     name: docker
     state: started
+
+- name: Ensure user are added to the docker group.
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  with_items: "{{ docker_users }}"
