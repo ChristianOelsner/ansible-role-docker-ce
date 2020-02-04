@@ -8,3 +8,13 @@
 
 - name: Install Docker CE
   import_tasks: docker.yml
+
+- name: Change Firewalld to work with Docker
+  command: firewall-cmd --zone=trusted --change-interface=docker0
+  
+- name: Make it permanent
+  command: firewall-cmd --zone=trusted --add-masquerade --permanent
+  
+- name: Reload it  
+  command: firewall-cmd --reload
+
