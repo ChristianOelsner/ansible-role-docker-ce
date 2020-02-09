@@ -1,4 +1,9 @@
 ---
+- name: Put SELinux in permissive mode, since disable wont take effect until after reboot.
+  selinux:
+    policy: targeted
+    state: permissive
+
 - name: Disable SELinux
   selinux:
     state: disabled
