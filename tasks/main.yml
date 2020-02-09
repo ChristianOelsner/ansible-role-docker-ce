@@ -1,4 +1,7 @@
 ---
+- name: Disable Selinux
+  import_tasks: selinux.yml
+  
 - name: Import Docker CE repo when distro is Redhat since they made weird changes
   import_tasks: add-repo.yml
   when: ansible_facts['os_family']|lower == 'redhat'
@@ -9,8 +12,7 @@
 - name: Install Docker CE
   import_tasks: docker.yml
 
-- name: Disable Selinux
-  import_tasks: selinux.yml
+
 
 # - name: Change Firewalld to work with Docker
 #   command: firewall-cmd --zone=trusted --change-interface=docker0
