@@ -9,6 +9,9 @@
 - name: Install Docker CE
   import_tasks: docker.yml
 
+- name: Disable Selinux
+  import_tasks: selinux.yml
+
 # - name: Change Firewalld to work with Docker
 #   command: firewall-cmd --zone=trusted --change-interface=docker0
   
