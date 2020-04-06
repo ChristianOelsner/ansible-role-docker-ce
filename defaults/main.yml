@@ -1,4 +1,4 @@
-  ---
+---
 # defaults file for ansible-role-docker-ce
 
 # Edition can be one of: 'ce' (Community Edition) or 'ee' (Enterprise Edition).
